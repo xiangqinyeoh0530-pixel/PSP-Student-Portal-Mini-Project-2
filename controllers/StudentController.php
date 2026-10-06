@@ -16,7 +16,7 @@ require_once __DIR__ . '/../models/Student.php';
 $studentModel = new Student();
 $action = $_GET['action'] ?? 'index';
 
-function validStudentInput($name, $ic, $marks, $program): array
+function validStudentInput($name, $ic, $marks): array
 {
     $errors = [];
 
@@ -26,10 +26,29 @@ function validStudentInput($name, $ic, $marks, $program): array
         $errors[] = 'Student name must not exceed 100 characters.';
     }
 
-    if ($program === '') {
-        $errors[] = 'Program is required.';
-    } elseif (strlen($program) > 100) {
-        $errors[] = 'Program must not exceed 100 characters.';
+    if ($ic === '') {
+        $errors[] = 'IC number is required.';
+    } elseif (!preg_match('/^\d{6}-\d{2}-\d{4}$/', $ic)) {
+        $errors[] = 'IC number must use the format 010101-07-0902.';
+    }
+
+    if ($marks === '' || !ctype_digit((string) $marks)) {
+        $errors[] = 'Marks must be a whole number between 0 and 100.';
+    } elseif ((int) $marks < 0 || (int) $marks > 100) {
+        $errors[] = 'Marks must be between 0 and 100.';
+    }
+
+    return $errors;
+}
+
+function validStudentUpdateInput($name, $ic, $marks): array
+{
+    $errors = [];
+
+    if ($name === '') {
+        $errors[] = 'Student name is required.';
+    } elseif (strlen($name) > 100) {
+        $errors[] = 'Student name must not exceed 100 characters.';
     }
 
     if ($ic === '') {
@@ -64,21 +83,19 @@ switch ($action) {
     // CREATE
     case 'create':
         $name = '';
-        $program = '';
         $ic = '';
         $marks = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name'] ?? '');
-            $program = trim($_POST['program'] ?? '');
             $ic = trim($_POST['ic'] ?? '');
             $marks = trim($_POST['marks'] ?? '');
 
-            $errors = validStudentInput($name, $ic, $marks, $program);
+            $errors = validStudentInput($name, $ic, $marks);
 
             if (empty($errors)) {
                 try {
-                    $result = $studentModel->addStudent($name, $ic, (int) $marks, $program);
+                    $result = $studentModel->addStudent($name, $ic, (int) $marks);
 
                     if ($result) {
                         header('Location: StudentController.php?action=index&added=1');
@@ -120,20 +137,18 @@ switch ($action) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name'] ?? '');
-            $program = trim($_POST['program'] ?? '');
             $ic = trim($_POST['ic'] ?? '');
             $marks = trim($_POST['marks'] ?? '');
 
-            $errors = validStudentInput($name, $ic, $marks, $program);
+            $errors = validStudentUpdateInput($name, $ic, $marks);
 
             $student['name'] = $name;
-            $student['program'] = $program;
             $student['ic'] = $ic;
             $student['marks'] = $marks;
 
             if (empty($errors)) {
                 try {
-                    $result = $studentModel->updateStudent($id, $name, $ic, (int) $marks, $program);
+                    $result = $studentModel->updateStudent($id, $name, $ic, (int) $marks);
 
                     if ($result) {
                         header('Location: StudentController.php?action=index&updated=1');

@@ -65,7 +65,6 @@ require_once __DIR__ . '/../includes/header.php';
                         <tr>
                             <th>No.</th>
                             <th>Name</th>
-                            <th>Program</th>
                             <th>IC</th>
                             <th>Marks</th>
                             <th>Action</th>
@@ -77,7 +76,6 @@ require_once __DIR__ . '/../includes/header.php';
                             <tr>
                                 <td><?= $index + 1 ?></td>
                                 <td><?= htmlspecialchars($student['name']) ?></td>
-                                <td><?= htmlspecialchars($student['program'] ?? '') ?></td>
                                 <td><?= htmlspecialchars($student['ic']) ?></td>
                                 <td><?= htmlspecialchars($student['marks']) ?></td>
                                 <td>
@@ -99,7 +97,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="6" class="text-center">No student records found.</td>
+                            <td colspan="5" class="text-center">No student records found.</td>
                         </tr>
                     <?php endif; ?>
                     </tbody>

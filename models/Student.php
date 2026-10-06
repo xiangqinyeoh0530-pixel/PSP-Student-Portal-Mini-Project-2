@@ -34,38 +34,35 @@ class Student
     }
 
     //create - all student
-    public function addStudent($name, $ic, $marks, $program)
+    public function addStudent($name, $ic, $marks)
     {
-        $sql = "INSERT INTO students (name, ic, marks, program)
-                VALUES (:name, :ic, :marks, :program)";
+        $sql = "INSERT INTO students (name, ic, marks)
+                VALUES (:name, :ic, :marks)";
 
         $stmt = $this->conn->prepare($sql);
 
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':ic', $ic);
         $stmt->bindParam(':marks', $marks, PDO::PARAM_INT);
-        $stmt->bindParam(':program', $program);
 
         return $stmt->execute();
     }
 
     //update - update student
-    public function updateStudent($id, $name, $ic, $marks, $program)
+    public function updateStudent($id, $name, $ic, $marks)
     {
         $sql = "UPDATE students
                 SET name = :name,
                     ic = :ic,
-                    marks = :marks,
-                    program = :program
+                    marks = :marks
                 WHERE id = :id";
-        
+
         $stmt = $this->conn->prepare($sql);
 
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':ic', $ic);
         $stmt->bindParam(':marks', $marks, PDO::PARAM_INT);
-        $stmt->bindParam(':program', $program);
 
         return $stmt->execute();
     }

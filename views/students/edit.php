@@ -47,18 +47,6 @@ require_once __DIR__ . '/../includes/header.php';
                         </div>
 
                         <div class="mb-3">
-                            <label for="program" class="form-label">Program</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="program"
-                                   name="program"
-                                   maxlength="100"
-                                   value="<?= htmlspecialchars($student['program'] ?? '') ?>"
-                                   placeholder="Enter program"
-                                   required>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="marks" class="form-label">Marks</label>
                             <input type="number"
                                    class="form-control"
@@ -106,7 +94,6 @@ function showValidationError(message) {
 function validateEditForm() {
     const name = document.getElementById('name').value.trim();
     const ic = document.getElementById('ic').value.trim();
-    const program = document.getElementById('program').value.trim();
     const marks = document.getElementById('marks').value;
 
     if (name === '') {
@@ -114,10 +101,6 @@ function validateEditForm() {
         return false;
     }
 
-    if (program === '') {
-        showValidationError('Please enter program.');
-        return false;
-    }
 
     if (ic === '') {
         showValidationError('Please enter IC number.');
