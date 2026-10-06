@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2026 at 08:02 AM
+-- Generation Time: Oct 06, 2026 at 09:35 AM
 -- Server version: 11.7.2-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,9 +45,9 @@ INSERT INTO `students` (`id`, `name`, `ic`, `marks`) VALUES
 (6, 'Yip Qiu Yee', '060111-07-0994', 99),
 (8, 'Lucas', '090123-09-0237', 89),
 (9, 'Adam', '020909-09-2395', 90),
-(10, 'Yeoh Xiang Qin', '060530-03-0074', 89),
 (11, 'Ooi Zi Yi', '060524-07-0318', 98),
-(14, 'Luke', '990809-12-8921', 77);
+(14, 'Luke', '990809-12-8921', 77),
+(17, 'Xiang Qin Yeoh', '060530-08-0074', 100);
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nric`, `program`, `password`, `role`, `profile_picture`) VALUES
-(1, 'Ali', '010101-01-1234', 'CS', '$2y$10$f1N5kSAqKadkOvRvNIVtnOJCI.2cNUdsXEDX09TSGYTFUaA/q8QfS', 'student', NULL),
+(1, 'Ali', '010101-01-1234', 'CS', '$2y$10$f1N5kSAqKadkOvRvNIVtnOJCI.2cNUdsXEDX09TSGYTFUaA/q8QfS', 'student', 'profile_6ac4a3a6901528.00587514.jpg'),
 (2, 'Admin', '001010-01-1287', 'System Administration', '$2y$10$/kL7D.CoTFgvnjK/EfDrXu6Ui5GPN5S29PTFvKEi16xf20wn8KbA6', 'admin', NULL);
 
 --
@@ -99,7 +99,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
