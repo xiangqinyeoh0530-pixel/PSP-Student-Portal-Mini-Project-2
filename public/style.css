@@ -1,0 +1,254 @@
+:root {
+    --portal-ink: #17324d;
+    --portal-muted: #68798c;
+    --portal-blue: #1769aa;
+    --portal-teal: #168f91;
+    --portal-surface: #ffffff;
+    --portal-line: #dbe5ed;
+    --portal-background: #eef4f7;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--portal-ink);
+    background:
+        linear-gradient(135deg, rgba(23, 105, 170, 0.08), transparent 42%),
+        var(--portal-background);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+    padding: 16px 0;
+    background: linear-gradient(100deg, #17324d, #1769aa) !important;
+    box-shadow: 0 3px 14px rgba(23, 50, 77, 0.18);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.site-footer {
+    background: linear-gradient(100deg, #17324d, #1769aa);
+    box-shadow: 0 -3px 14px rgba(23, 50, 77, 0.12);
+}
+
+.container {
+    max-width: 1120px;
+}
+
+.card {
+    overflow: hidden;
+    border: 1px solid var(--portal-line);
+    border-radius: 10px;
+    background: var(--portal-surface);
+    box-shadow: 0 12px 30px rgba(23, 50, 77, 0.08) !important;
+}
+
+.card-header {
+    padding: 18px 22px;
+    border: 0;
+    background: linear-gradient(100deg, var(--portal-blue), var(--portal-teal)) !important;
+}
+
+.card-header.bg-warning {
+    color: #17324d;
+    background: linear-gradient(100deg, #f4c95d, #f0a94b) !important;
+}
+
+.card-body {
+    padding: 26px;
+}
+
+h2,
+h4 {
+    font-weight: 700;
+}
+
+.form-label {
+    color: var(--portal-ink);
+    font-weight: 600;
+}
+
+.form-control {
+    min-height: 44px;
+    border: 1px solid var(--portal-line);
+    border-radius: 7px;
+}
+
+.form-control:focus {
+    border-color: var(--portal-teal);
+    box-shadow: 0 0 0 0.2rem rgba(22, 143, 145, 0.16);
+}
+
+.btn {
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    border-color: var(--portal-blue);
+    background: var(--portal-blue);
+}
+
+.btn-primary:hover {
+    border-color: #125687;
+    background: #125687;
+}
+
+.btn-secondary {
+    border-color: #60758a;
+    background: #60758a;
+}
+
+.table {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.table thead th {
+    padding: 14px 12px;
+    border: 0;
+    background: #17324d;
+    font-size: 0.9rem;
+    letter-spacing: 0.2px;
+}
+
+.table tbody td {
+    padding: 13px 12px;
+    border-color: var(--portal-line);
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f8fa;
+}
+
+.alert {
+    border: 0;
+    border-radius: 7px;
+}
+
+.validation-modal {
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(23, 50, 77, 0.22);
+}
+
+.validation-modal .modal-header {
+    color: #fff;
+    border: 0;
+    background: linear-gradient(100deg, var(--portal-blue), var(--portal-teal));
+}
+
+.validation-modal .modal-body {
+    padding: 24px;
+    color: var(--portal-ink);
+    font-size: 1rem;
+}
+
+.validation-modal .modal-footer {
+    border-top: 0;
+}
+
+/* Profile action buttons */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+/* Modern delete confirmation modal */
+.delete-modal {
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 55px rgba(23, 50, 77, 0.22);
+}
+
+.delete-modal .modal-header {
+    min-height: 92px;
+    justify-content: center;
+    position: relative;
+    padding-top: 28px;
+}
+
+.delete-modal .btn-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    opacity: 0.55;
+}
+
+.delete-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff1f1;
+    border: 8px solid #fff7f7;
+}
+
+.delete-icon span {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dc3545;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.delete-modal .btn {
+    min-width: 120px;
+}
+
+@media (max-width: 576px) {
+    .delete-modal .modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .delete-modal .modal-footer .btn,
+    .delete-modal .modal-footer form {
+        width: 100%;
+    }
+
+    .delete-modal .modal-footer form .btn {
+        width: 100%;
+    }
+}
+
+
+/* Mini Project 2 - Profile picture upload */
+.profile-picture-section {
+    padding-top: 0.5rem;
+}
+
+.profile-picture {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #198754;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.profile-picture-placeholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9f7ef;
+    color: #198754;
+    font-size: 3rem;
+    font-weight: 700;
+}
