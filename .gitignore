@@ -1,0 +1,16 @@
+# Local development / OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Environment / local credentials
+.env
+config/database.local.php
+
+# Uploaded user files (keep the folder via .gitkeep)
+uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
