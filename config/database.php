@@ -1,9 +1,9 @@
 <?php
 
-$host = "localhost";
-$dbname = "psp_student_portal";
-$username = "root";
-$password = "";
+$host = "sql307.infinityfree.com";
+$dbname = "if0_42988673_psp_student_portal";
+$username = "if0_42988673";
+$password = "060530080074Yxq";
 
 try {
     $conn = new PDO(
