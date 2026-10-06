@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2026 at 07:45 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Oct 06, 2026 at 10:46 AM
+-- Server version: 11.7.2-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,16 +60,17 @@ CREATE TABLE `users` (
   `nric` varchar(20) NOT NULL,
   `program` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'student'
+  `role` varchar(20) NOT NULL DEFAULT 'student',
+  `profile_picture` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `nric`, `program`, `password`, `role`) VALUES
-(1, 'Ali', '010101-01-1234', 'CS', '$2y$10$QcDXLOj6DljhvYFigBJiZu3ji5gFDCQ4pb5iGWXgDFPdewkCYVlUW', 'student'),
-(2, 'Admin', '001010-01-1287', 'System Administration', '$2y$10$sd9VBj/tCYDIv47Pv0XCp.93ZkNPA.j013lUkYMDqZj1aEdFRnq8K', 'admin');
+INSERT INTO `users` (`id`, `name`, `nric`, `program`, `password`, `role`, `profile_picture`) VALUES
+(1, 'Ali', '010101-01-1234', 'CS', '$2y$10$QcDXLOj6DljhvYFigBJiZu3ji5gFDCQ4pb5iGWXgDFPdewkCYVlUW', 'student', NULL),
+(2, 'Admin', '001010-01-1287', 'System Administration', '$2y$10$sd9VBj/tCYDIv47Pv0XCp.93ZkNPA.j013lUkYMDqZj1aEdFRnq8K', 'admin', NULL);
 
 --
 -- Indexes for dumped tables
@@ -97,7 +98,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
